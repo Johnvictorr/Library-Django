@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+Listing Books
+{% endblock title %}
+
+{% block pageTitle %}
+Listing Books
+{% endblock pageTitle %}
+
+{% block content %}
+<table class="tableBookList">
+    <thead>
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Publisher</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for book in list %}
+        <tr>
+            <td>{{book.author}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.yearPublication}}</td>
+            <td>{{book.publisher}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="#">
+    <button type="submit">
+        Register
+    </button>
+</a>
+
+{% endblock content %}
