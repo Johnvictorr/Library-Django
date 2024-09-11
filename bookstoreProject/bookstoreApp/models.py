@@ -8,6 +8,3 @@ class Book(models.Model):
     title = models.CharField(max_length=50)
     yearPublication = models.IntegerField()
     emailPublisher = models.EmailField(max_length=254)
-
-    def __init__(self):
-        return self.nome

@@ -21,7 +21,7 @@ Listing Books
         </tr>
     </thead>
     <tbody>
-    {% for book in books %}
+    {% for book in list %}
         <tr>
             <td style="border: 1px solid black; padding: 8px;">{{ book.author }}</td>
             <td style="border: 1px solid black; padding: 8px;">{{ book.publisher }}</td>
@@ -32,7 +32,7 @@ Listing Books
         </tr>
     {% endfor %}
     </tbody>
-</table>
+</table><br>
 <a href="#">
     <button type="submit">
         Register
