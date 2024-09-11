@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import ModelForm
 from .models import *
 
@@ -17,4 +17,15 @@ def newBook(request):
     if form.is_valid():
         form.save()
         return redirect('listBooks')
+    return render(request, 'booksForm.html', {'form': form})
+
+def editBook(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    if request.method == "POST":
+        form = BookForm(request.POST, instance=book)
+        if form.is_valid():
+            book = form.save()
+            return redirect('listBooks')
+    else:
+        form = BookForm(instance=book)
     return render(request, 'booksForm.html', {'form': form})
