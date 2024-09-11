@@ -14,8 +14,6 @@ Listing Books
         <tr>
             <th style="border: 1px solid black; padding: 8px;">Author</th>
             <th style="border: 1px solid black; padding: 8px;">Publisher</th>
-            <th style="border: 1px solid black; padding: 8px;">ISBN</th>
-            <th style="border: 1px solid black; padding: 8px;">Pages Number</th>
             <th style="border: 1px solid black; padding: 8px;">Title</th>
             <th style="border: 1px solid black; padding: 8px;">Year</th>
         </tr>
@@ -25,15 +23,13 @@ Listing Books
         <tr>
             <td style="border: 1px solid black; padding: 8px;">{{ book.author }}</td>
             <td style="border: 1px solid black; padding: 8px;">{{ book.publisher }}</td>
-            <td style="border: 1px solid black; padding: 8px;">{{ book.isbn }}</td>
-            <td style="border: 1px solid black; padding: 8px;">{{ book.pagesNumber }}</td>
             <td style="border: 1px solid black; padding: 8px;">{{ book.title }}</td>
             <td style="border: 1px solid black; padding: 8px;">{{ book.yearPublication }}</td>
         </tr>
     {% endfor %}
     </tbody>
 </table><br>
-<a href="#">
+<a href="{% url 'newBook' %}">
     <button type="submit">
         Register
     </button>
