@@ -7,7 +7,7 @@ class BookForm(ModelForm):
         model = Book
         fields = ['author', 'publisher', 'isbn', 'pagesNumber', 'title', 'yearPublication', 'emailPublisher']
 
-def bookList(request, template_name='bookList.html'):
+def bookList(request):
     book = Book.objects.all()
     books = {'list': book}
-    return render(request, template_name, books)
+    return render(request, 'bookList.html', books)
