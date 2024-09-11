@@ -8,7 +8,8 @@ Listing Books
 Listing Books
 {% endblock pageTitle %}
 
-{% block content %}<br>
+{% block content %}
+<br>
 <table style="width: 100%; border-collapse: collapse;">
     <thead>
         <tr style="border-bottom: 1px solid black;">
@@ -28,8 +29,13 @@ Listing Books
             <td style="padding: 8px; text-align: center;">{{ book.yearPublication }}</td>
             <td style="padding: 8px; text-align: center;">
                 <a href="{% url 'editBook' book.pk %}">
-                    <button type="submit" style="display: inline-block; margin: 5px 0; padding: 5px 10px; text-decoration: none; border-radius: 4px; box-shadow: 2px 2px 5px gray; font-size: 15px; border-color: transparent; width: 50%;">
+                    <button type="submit" style="display: inline-block; margin: 5px 0; padding: 5px 10px; text-decoration: none; border-radius: 4px; box-shadow: 2px 2px 5px gray; font-size: 15px; border-color: transparent;">
                         Edit
+                    </button>
+                </a>
+                <a href="{% url 'deleteBook' book.pk %}">
+                    <button type="submit" style="display: inline-block; margin: 5px 0; padding: 5px 10px; text-decoration: none; border-radius: 4px; box-shadow: 2px 2px 5px gray; font-size: 15px; border-color: transparent;">
+                        Remove
                     </button>
                 </a>
             </td>
@@ -48,5 +54,4 @@ Listing Books
         </td>
     </tr>
 </table>
-
 {% endblock content %}

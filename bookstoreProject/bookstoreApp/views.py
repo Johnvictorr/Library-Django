@@ -7,10 +7,12 @@ class BookForm(ModelForm):
         model = Book
         fields = ['author', 'publisher', 'isbn', 'pagesNumber', 'title', 'yearPublication', 'emailPublisher']
 
+
 def bookList(request):
     book = Book.objects.all()
     books = {'list': book}
     return render(request, 'bookList.html', books)
+
 
 def newBook(request):
     form = BookForm(request.POST or None)
@@ -18,6 +20,7 @@ def newBook(request):
         form.save()
         return redirect('listBooks')
     return render(request, 'booksForm.html', {'form': form})
+
 
 def editBook(request, pk):
     book = get_object_or_404(Book, pk=pk)
@@ -29,3 +32,11 @@ def editBook(request, pk):
     else:
         form = BookForm(instance=book)
     return render(request, 'booksForm.html', {'form': form})
+
+
+def deleteBook(request, pk):
+    book = Book.objects.get(pk=pk)
+    if request.method == "POST":
+        book.delete()
+        return redirect('listBooks')
+    return render(request, 'deleteBook.html', {'book': book})
